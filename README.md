@@ -20,7 +20,7 @@
 
 ### 3.1 Dashboard Page
 
-![Dashboard Page](https://github.com/pin50195/timeTracker/assets/156511146/8b06b07c-c8d2-4140-b1de-896f7e4b45a9)
+![Dashboard Page](https://github.com/pin50195/timeTracker/assets/156511146/d4b3263c-2eaf-4b0c-81ff-b54456518b99)
 
 
 - **What are you working on?**
@@ -30,7 +30,7 @@
         - 停止按鈕：點選按鈕同時，資料存入 LocalStorage，同步更新圖表
         - 時間紀錄：使用 setInterval，呈現目前計時的時間
 
-![Demo-system timer](https://github.com/pin50195/timeTracker/assets/156511146/4daf54a7-ad73-4a6f-9de5-91d10880643f)
+![Demo-system timer](https://github.com/pin50195/timeTracker/assets/156511146/31f0aad0-9bca-4724-bd15-d8e00f157488)
 
 - **Latest Activity**
 
@@ -39,7 +39,7 @@
             - 呈現：目前最新十筆歷史資料，由上至下排序方式為 新 -> 舊
             - 刪除：點選每筆最右方垃圾桶按鈕
 
-  ![Demo-manual input](https://github.com/pin50195/timeTracker/assets/156511146/74ea95e4-8a2b-4621-b8ff-354ca5747b41)
+  ![Demo-manual input](https://github.com/pin50195/timeTracker/assets/156511146/0c4deac6-4364-4693-8754-e61536327a09)
 
 - **Today's report**
 
@@ -62,7 +62,7 @@
       - 逐筆刪除：點選每筆最右方垃圾桶按鈕
       - 多筆刪除：點選 Delete
 
-![History Page](https://github.com/pin50195/timeTracker/assets/156511146/582f71a2-5c8b-4aea-98f7-82a5fd51939d)
+![History Page](https://github.com/pin50195/timeTracker/assets/156511146/6f2771b1-6c62-479b-be27-9d1a5526e4bd)
 
 ## 4.往後課題
 
