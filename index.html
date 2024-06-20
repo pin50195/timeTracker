@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=Palanquin+Dark:wght@400;500;600;700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./style/style.css" />
+    <title>TimeTracker</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <a href="#"
+            ><i class="fa-solid fa-clock-rotate-left"></i>TimeTracker</a
+          >
+        </div>
+        <ul class="menu">
+          <li class="nav-link"><a href="#">Dashboard</a></li>
+          <li class="nav-link"><a href="./history.html">History</a></li>
+        </ul>
+        <div class="ham-bar">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </nav>
+    </header>
+    <main class="dashBoard">
+      <section class="left">
+        <div class="timer divbox">
+          <p>What are you working on?</p>
+          <div class="form">
+            <select name="select" class="timer-select">
+              <option value="null" disabled selected>Task Type</option>
+              <option value="Work">Work</option>
+              <option value="Study">Study</option>
+              <option value="Exercise">Exercise</option>
+            </select>
+            <div class="btns">
+              <button class="start btn">
+                <i class="fa-solid fa-play"></i>
+              </button>
+              <button class="stop btn">
+                <i class="fa-solid fa-stop"></i>
+              </button>
+            </div>
+          </div>
+          <div class="timeContainer"><p class="time">00 : 00 : 00</p></div>
+        </div>
+        <div class="tasksContainer divbox">
+          <div class="latest">
+            <p>Latest Activity</p>
+            <button class="add btn">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+            <div id="myForm">
+              <button class="close-btn btn">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+              <form action="" method="get" class="form-container">
+                <div class="input-container">
+                  <label for="form-startTime">Start time</label>
+                  <input
+                    type="time"
+                    id="form-startTime"
+                    name="form-startTime"
+                    required
+                  />
+                </div>
+                <div class="input-container">
+                  <label for="form-endTime">End time</label>
+                  <input
+                    type="time"
+                    id="form-endTime"
+                    name="form-endTime"
+                    required
+                  />
+                </div>
+                <div class="input-container">
+                  <label for="form-date">Date</label>
+                  <input type="date" id="form-date" name="form-date" required />
+                </div>
+                <div class="input-container">
+                  <label for="form-date">Task</label>
+                  <select name="form-select" class="form-select" required>
+                    <option value="null" disabled selected>Type</option>
+                    <option value="Work">Work</option>
+                    <option value="Study">Study</option>
+                    <option value="Exercise">Exercise</option>
+                  </select>
+                </div>
+                <button class="form-btn reest-btn">Reset</button>
+                <button class="form-btn submit-btn">Submit</button>
+              </form>
+            </div>
+          </div>
+          <div class="activiity-data"></div>
+        </div>
+      </section>
+      <section class="right">
+        <div class="report divbox">
+          <p>Today's report</p>
+          <canvas id="donutChart" width="550" height="500"></canvas>
+        </div>
+        <div class="weekly-report divbox">
+          <p>Weekly report</p>
+          <canvas id="barChart" width="700" height="280"></canvas>
+        </div>
+      </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

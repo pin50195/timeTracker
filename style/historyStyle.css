@@ -1,0 +1,209 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: normal;
+  font-family: "Palanquin Dark", sans-serif;
+  color: rgba(50, 50, 50, 0.7);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0.5rem 5rem;
+}
+body header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 3px solid #efefef;
+}
+body header nav .logo {
+  display: flex;
+  align-items: center;
+}
+body header nav .logo a {
+  font-size: 1.5rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+body header nav .logo a > i {
+  margin-right: 5px;
+}
+body header nav .menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+body header nav .menu li {
+  padding: 0.8rem;
+  text-align: center;
+}
+body header nav .menu li a {
+  text-decoration: none;
+  display: block;
+  padding: 10px 0;
+}
+body header nav .ham-bar {
+  display: none;
+  cursor: pointer;
+  transition: all, 0.3s;
+}
+body header nav .ham-bar:hover {
+  transform: scale(1.2);
+}
+body header nav .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: rgba(50, 50, 50, 0.7);
+  transition: all 0.3s ease-in-out;
+}
+body main {
+  align-self: center;
+}
+body main table {
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+body main th,
+body main td {
+  padding: 1rem 2rem;
+  width: 20vw;
+}
+body main td:nth-child(2),
+body main td:nth-child(3) {
+  width: 80vw;
+}
+body main td:first-child {
+  border-top-left-radius: 11px;
+  border-bottom-left-radius: 11px;
+}
+body main td:last-child {
+  border-bottom-right-radius: 11px;
+  border-top-right-radius: 11px;
+}
+body main .work-type td {
+  background-color: rgba(255, 205, 56, 0.6);
+}
+body main .study-type td {
+  background-color: rgba(133, 224, 163, 0.6);
+}
+body main .exercise-type td {
+  background-color: rgba(255, 73, 73, 0.6);
+}
+body main .delete-all-data {
+  cursor: pointer;
+}
+body main .delete-all-data:hover {
+  text-decoration: underline;
+}
+body main .btn {
+  border: none;
+  background-color: Transparent;
+  cursor: pointer;
+  transition: all, 0.3s;
+}
+body main .btn:hover {
+  transform: scale(1.2);
+}
+body main .fa-trash-can {
+  font-size: 20px;
+}
+
+@keyframes scaleDown {
+  to {
+    transform: scale(0);
+  }
+}
+@media screen and (max-width: 940px) {
+  body main table thead {
+    position: absolute;
+    overflow: hidden;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+  }
+  body main td:first-child {
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 11px;
+  }
+  body main td:nth-child(4) {
+    border-bottom-left-radius: 11px;
+    border-bottom-right-radius: 11px;
+  }
+  body main td:last-child {
+    position: absolute;
+    overflow: hidden;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+  }
+  body main table tr {
+    display: block;
+    margin-bottom: 0.625em;
+  }
+  body main table td {
+    display: block;
+    font-size: 1.2rem;
+    text-align: right;
+    width: 80vw;
+  }
+  body main table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+@media screen and (max-width: 630px) {
+  body {
+    padding: 0.5rem 1.5rem;
+  }
+  body header {
+    padding-top: 20px;
+  }
+  body header nav .logo a {
+    font-size: 2rem;
+  }
+  body header nav .ham-bar {
+    display: block;
+  }
+  body header nav .ham-bar.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  body header nav .ham-bar.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  body header nav .ham-bar.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  body header nav .menu {
+    position: fixed;
+    left: -100%;
+    top: 5.5rem;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+  body header nav .menu li {
+    transition: all, 0.3s;
+  }
+  body header nav .menu li:hover {
+    transform: scale(1.2);
+  }
+  body header nav .menu.active {
+    left: 0;
+  }
+}/*# sourceMappingURL=historyStyle.css.map */
