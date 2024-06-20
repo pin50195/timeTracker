@@ -62,7 +62,7 @@
       - 逐筆刪除：點選每筆最右方垃圾桶按鈕
       - 多筆刪除：點選 Delete
 
-![History Page](https://github.com/pin50195/timeTracker/assets/156511146/6f2771b1-6c62-479b-be27-9d1a5526e4bd)
+![History Page](https://github.com/pin50195/timeTracker/assets/156511146/61c186da-d1fb-48ce-8547-acf636ecd399)
 
 ## 4.往後課題
 
