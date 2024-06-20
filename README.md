@@ -39,7 +39,7 @@
             - 呈現：目前最新十筆歷史資料，由上至下排序方式為 新 -> 舊
             - 刪除：點選每筆最右方垃圾桶按鈕
 
-  ![Demo-manual input](https://github.com/pin50195/timeTracker/assets/156511146/0c4deac6-4364-4693-8754-e61536327a09)
+  ![Demo-manual input](https://github.com/pin50195/timeTracker/assets/156511146/f62fc3fa-f176-40c8-ab9a-067adf9a9aef)
 
 - **Today's report**
 
