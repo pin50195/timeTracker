@@ -877,67 +877,51 @@ function mergeTime(arr1, arr2) {
   let result = [];
   let i = 0;
   let j = 0;
-  while (i < arr1.length && j < arr2.length) {
-    if (Number(arr1[i].year) < Number(arr2[j].year)) {
-      result.push(arr1[i]);
-      i++;
-    } else if (Number(arr1[i].year) > Number(arr2[j].year)) {
-      result.push(arr2[j]);
-      j++;
-    } else if (Number(arr1[i].year) == Number(arr2[j].year)) {
-      if (
-        Number(monthNamesEn.indexOf(arr1[i].month)) <
-        Number(monthNamesEn.indexOf(arr2[j].month))
-      ) {
-        result.push(arr1[i]);
-        i++;
-      } else if (
-        Number(monthNamesEn.indexOf(arr1[i].month)) >
-        Number(monthNamesEn.indexOf(arr2[j].month))
-      ) {
-        result.push(arr2[j]);
-        j++;
-      } else if (
-        monthNamesEn.indexOf(arr1[i].month) ==
-        monthNamesEn.indexOf(arr2[j].month)
-      ) {
-        if (Number(arr1[i].date) < Number(arr2[j].date)) {
-          result.push(arr1[i]);
-          i++;
-        } else if (Number(arr1[i].date) > Number(arr2[j].date)) {
-          result.push(arr2[j]);
-          j++;
-        } else if (Number(arr1[i].date) == Number(arr2[j].date)) {
-          let arr1StartTime = arr1[i].start.split(" : ");
-          let arr2StartTime = arr2[i].start.split(" : ");
 
-          if (Number(arr1StartTime[0]) < Number(arr2StartTime[0])) {
-            result.push(arr1[i]);
-            i++;
-          } else if (Number(arr1StartTime[0]) > Number(arr2StartTime[0])) {
-            result.push(arr2[j]);
-            j++;
-          } else if (Number(arr1StartTime[0]) == Number(arr2StartTime[0])) {
-            if (Number(arr1StartTime[1] < Number(arr2StartTime[1]))) {
-              result.push(arr1[i]);
-              i++;
-            } else if (Number(arr1StartTime[1]) > Number(arr2StartTime[1])) {
-              result.push(arr2[j]);
-              j++;
-            } else if (Number(arr1StartTime[1]) == Number(arr2StartTime[1])) {
-              if (Number(arr1[i].hours) < Number(arr2[j].hours)) {
-                result.push(arr1[i]);
-                i++;
-              } else {
-                result.push(arr2[j]);
-                j++;
-              }
-            }
-          }
-        }
-      }
+  while (i < arr1.length && j < arr2.length) {
+    let a = arr1[i];
+    let b = arr2[j];
+
+    let aYear = Number(a.year);
+    let bYear = Number(b.year);
+
+    let aMonth = monthNamesEn.indexOf(a.month);
+    let bMonth = monthNamesEn.indexOf(b.month);
+
+    let aDate = Number(a.date);
+    let bDate = Number(b.date);
+
+    let [aHour, aMinute] = a.start.split(" : ").map(Number);
+    let [bHour, bMinute] = b.start.split(" : ").map(Number);
+
+    if (
+      aYear < bYear ||
+      (aYear === bYear && aMonth < bMonth) ||
+      (aYear === bYear && aMonth === bMonth && aDate < bDate) ||
+      (aYear === bYear &&
+        aMonth === bMonth &&
+        aDate === bDate &&
+        aHour < bHour) ||
+      (aYear === bYear &&
+        aMonth === bMonth &&
+        aDate === bDate &&
+        aHour === bHour &&
+        aMinute < bMinute) ||
+      (aYear === bYear &&
+        aMonth === bMonth &&
+        aDate === bDate &&
+        aHour === bHour &&
+        aMinute === bMinute &&
+        Number(a.hours) < Number(b.hours))
+    ) {
+      result.push(a);
+      i++;
+    } else {
+      result.push(b);
+      j++;
     }
   }
+
   while (i < arr1.length) {
     result.push(arr1[i]);
     i++;
@@ -954,11 +938,10 @@ function mergeTime(arr1, arr2) {
 function mergeSort(arr) {
   if (arr.length === 1) {
     return arr;
-  } else {
-    let mid = Math.floor(arr.length / 2);
-    let left = arr.slice(0, mid);
-    let right = arr.slice(mid, arr.length);
-
-    return mergeTime(mergeSort(left), mergeSort(right));
   }
+
+  let mid = Math.floor(arr.length / 2);
+  let left = arr.slice(0, mid);
+  let right = arr.slice(mid, arr.length);
+  return mergeTime(mergeSort(left), mergeSort(right));
 }
