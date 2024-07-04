@@ -622,22 +622,30 @@ function setBarChart() {
   let weekDataLabels = [];
   let checkLocalStorageTime = [];
 
-  for (let i = 0; i < 7; i++) {
-    let labelTime = {
-      year: currentYear,
-      month: currentMonth < 10 ? "0" + (currentMonth + 1) : currentMonth + 1,
-      date: currentDate < 10 ? "0" + currentDate : currentDate,
-    };
-
-    labelTime.date = labelTime.date - i;
-
-    const dateString = `${labelTime.year}-${labelTime.month}-${labelTime.date}`;
-    const dayOfWeek = getDayOfWeek(dateString);
-    weekDataLabels.unshift(
-      `${labelTime.month}/${labelTime.date}(${dayOfWeek})`
-    );
-    checkLocalStorageTime.unshift(labelTime);
+  function getLastNDays(n) {
+    let dates = [];
+    for (let i = 0; i < n; i++) {
+      const date = new Date();
+      date.setDate(date.getDate() - i);
+      dates.push({
+        year: date.getFullYear(),
+        month: date.getMonth() + 1, // Months are 0-based in JavaScript Date object
+        date: date.getDate(),
+      });
+    }
+    return dates;
   }
+
+  const last7Days = getLastNDays(7);
+
+  last7Days.forEach((dateObj) => {
+    const dateString = `${dateObj.year}-${dateObj.month < 10 ? "0" : ""}${
+      dateObj.month
+    }-${dateObj.date < 10 ? "0" : ""}${dateObj.date}`;
+    const dayOfWeek = getDayOfWeek(dateString);
+    weekDataLabels.unshift(`${dateObj.month}/${dateObj.date}(${dayOfWeek})`);
+    checkLocalStorageTime.unshift(dateObj);
+  });
 
   //從localStorage 抓取 bar chart 中所需資料
   let myList = localStorage.getItem("list");
