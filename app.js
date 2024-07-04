@@ -886,14 +886,14 @@ function mergeTime(arr1, arr2) {
       j++;
     } else if (Number(arr1[i].year) == Number(arr2[j].year)) {
       if (
-        monthNamesEn.indexOf(arr1[i].month) <
-        monthNamesEn.indexOf(arr2[j].month)
+        Number(monthNamesEn.indexOf(arr1[i].month)) <
+        Number(monthNamesEn.indexOf(arr2[j].month))
       ) {
         result.push(arr1[i]);
         i++;
       } else if (
-        monthNamesEn.indexOf(arr1[i].month) >
-        monthNamesEn.indexOf(arr2[j].month)
+        Number(monthNamesEn.indexOf(arr1[i].month)) >
+        Number(monthNamesEn.indexOf(arr2[j].month))
       ) {
         result.push(arr2[j]);
         j++;
